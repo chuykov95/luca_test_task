@@ -1,4 +1,3 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div *ngFor="let course of courses$ | async">
+  <h3>{{course.name}}</h3>
+</div>
