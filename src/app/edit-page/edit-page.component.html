@@ -1,0 +1,59 @@
+<div *ngIf="course$ | async as course">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-control">
+      <label for="name">Название курса:</label>
+      <input id="name" type="text" formControlName="name">
+    </div>
+
+    <div class="form-control">
+      <label for="firstName">Имя автора:</label>
+      <input id="firstName" type="text" formControlName="firstName">
+    </div>
+
+    <div class="form-control">
+      <label for="lastName">Фамилия автора:</label>
+      <input id="lastName" type="text" formControlName="lastName">
+    </div>
+
+    <label>Содержание</label>
+    <div class="form-control" *ngFor="let content of getFormsControls('content')['controls']; let i = index">
+      <div formArrayName="content">
+        <input type="text" formControlName="{{i}}" />
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="plansName">Тарифный план:</label>
+      <input id="plansName" type="text" formControlName="plansName">
+    </div>
+
+    <div class="form-control">
+      <label for="plansPrice">Цена:</label>
+      <input id="plansPrice" type="text" formControlName="plansPrice">
+    </div>
+
+    <div class="form-control">
+      <label for="duration">Продолжительность:</label>
+      <input id="duration" type="text" formControlName="duration">
+    </div>
+
+    <div class="form-control">
+      <label>Sales:</label>
+      <label for="salesStart">Начало:</label>
+      <input id="salesStart" type="datetime-local" formControlName="salesStart">
+      <label for="salesEnd">Конец:</label>
+      <input id="salesEnd" type="datetime-local" formControlName="salesEnd">
+    </div>
+
+
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="form.invalid"
+    >
+      Обновить
+    </button>
+
+  </form>
+</div>

@@ -7,9 +7,7 @@ import { DataService } from './services/data/data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(
-    private readonly dataService:DataService
-  ) {}
-  courses$ = this.dataService.courses$;
+
+
 
 }
